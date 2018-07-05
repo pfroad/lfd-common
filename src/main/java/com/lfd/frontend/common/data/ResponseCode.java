@@ -27,6 +27,8 @@ public enum ResponseCode {
 
     SERVER_ERROR(500, "internal server error"),
 
+    REQ_DELAY(600, "delay time to request")
+
 //    UNCOMPLETED_ORDERS(1011, "有2张未完成订单！"),
 //    UNPAID_ORDERS(1012, "您有未支付订单，请支付后再下单！"),
 //    PLATENO_UNPAID_ORDERS(1013, "车牌%有未支付订单，请通过%用户支付后再下单！"),
