@@ -7,6 +7,10 @@ import java.util.Date;
 public class J8DateUtils {
     public static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     public static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    /**
+     * yyMMdd
+     */
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
 
     public static Date stringToDate(String dateStr) {
         LocalDateTime dateTime = LocalDateTime.parse(dateStr, dateTimeFormatter);
