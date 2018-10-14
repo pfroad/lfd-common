@@ -90,8 +90,8 @@ public class CloudRequest implements Serializable {
 
 	public enum ClientType {
         UNKNOWN(0, "unknown"),
-        ANDROID(1, "ANDROID"),
-        IOS(2, "IOS"),
+        IOS(1, "IOS"),
+        ANDROID(2, "ANDROID"),
         WP(3, "wp"),
         H5(4, "H5"),
         WEIXIN(5, "weixin"),
