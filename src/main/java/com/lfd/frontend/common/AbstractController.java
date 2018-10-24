@@ -1,7 +1,7 @@
 package com.lfd.frontend.common;
 
 import com.lfd.frontend.common.data.CloudRequest;
-import com.tencent.xinge.XingeApp;
+import com.tencent.xinge.bean.Environment;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.web.bind.ServletRequestUtils;
 
@@ -31,7 +31,7 @@ public class AbstractController {
                                     String account) {
         final Integer clientType = Integer.parseInt(request.getHeader("clientType"));
         if (clientType.equals(CloudRequest.ClientType.IOS.getValue())) {
-            return notifyService.sendToIos(content, account, XingeApp.IOSENV_DEV);
+            return notifyService.sendToIos(title, content, account, Environment.dev);
         } else if (clientType.equals(CloudRequest.ClientType.ANDROID.getValue())) {
             return notifyService.sendToAndroid(title, content, account);
         } else {
