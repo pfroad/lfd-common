@@ -28,12 +28,13 @@ public class AbstractController {
                                     XingeNotifyService notifyService,
                                     String title,
                                     String content,
-                                    String account) {
+                                    String account,
+                                    String custom) {
         final Integer clientType = Integer.parseInt(request.getHeader("clientType"));
         if (clientType.equals(CloudRequest.ClientType.IOS.getValue())) {
-            return notifyService.sendToIos(title, content, account, Environment.dev);
+            return notifyService.sendToIos(title, content, account, custom, Environment.product);
         } else if (clientType.equals(CloudRequest.ClientType.ANDROID.getValue())) {
-            return notifyService.sendToAndroid(title, content, account);
+            return notifyService.sendToAndroid(title, content, account, custom);
         } else {
             return false;
         }

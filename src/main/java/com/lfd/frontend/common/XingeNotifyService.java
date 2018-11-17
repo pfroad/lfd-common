@@ -27,7 +27,11 @@ public class XingeNotifyService {
         this.xingeApp = new XingeApp(this.accessId, this.secretKey);
     }
 
-    public boolean sendToIos(String title, String content, String account, Environment env) {
+    public boolean sendToIos(String title,
+                             String content,
+                             String account,
+                             String custom,
+                             Environment env) {
         Message message = new Message();
         message.setContent(content);
         message.setTitle(title);
@@ -40,7 +44,9 @@ public class XingeNotifyService {
         Aps aps = new Aps();
         aps.setBadge_type(-2);
         aps.setAlert(alert);
+        aps.setSound("default");
         msgIOS.setAps(aps);
+        msgIOS.setCustom(custom);
 
         message.setIos(msgIOS);
 
@@ -69,7 +75,10 @@ public class XingeNotifyService {
         return true;
     }
 
-    public boolean sendToAndroid(String title, String content, String account) {
+    public boolean sendToAndroid(String title,
+                                 String content,
+                                 String custom,
+                                 String account) {
         MessageAndroid messageAndroid = new MessageAndroid();
 //        messageAndroid.setBuilder_id(0);
         messageAndroid.setRing(1);
@@ -78,7 +87,9 @@ public class XingeNotifyService {
         messageAndroid.setN_id(0);
         messageAndroid.setLights(1);
         messageAndroid.setIcon_type(0);
+        messageAndroid.setRing(1);
         messageAndroid.setStyle_id(1);
+        messageAndroid.setCustom_content(custom);
 
         Message message = new Message();
         message.setAndroid(messageAndroid);
